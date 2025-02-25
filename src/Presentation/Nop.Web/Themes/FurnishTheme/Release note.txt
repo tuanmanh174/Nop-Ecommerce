@@ -1,0 +1,11 @@
+Release Date: February 11, 2025
+nopAccelerate Furnish Theme version: 1.2.0
+
+Added Feature: Support for nopCommerce 4.80 added
+
+==========================================================
+
+Release Date: March 22, 2024
+nopAccelerate Furnish Theme version: 1.0.0
+
+Release nopAccelerate Furnish Theme Initial version 1.0.0
