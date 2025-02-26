@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nop.Core.Domain.CustomDish;
 using Nop.Core.Infrastructure;
+using Nop.Data.Mapping.CustomDish;
 using Nop.Plugin.Misc.Brevo.Services;
+using Nop.Services.CustomDish;
 using Nop.Services.Messages;
 using Nop.Web.Framework.Infrastructure.Extensions;
 
@@ -25,9 +29,12 @@ public class NopStartup : INopStartup
         //register custom services
         services.AddScoped<BrevoManager>();
         services.AddScoped<MarketingAutomationManager>();
+        services.AddScoped<IEntityTypeConfiguration<DishIngredientMapping>, DishIngredientMappingMap>();
+     
+        services.AddScoped<ICustomDishService, CustomDishService>();
 
-        //override services
-        services.AddScoped<IWorkflowMessageService, BrevoMessageService>();
+    //override services
+    services.AddScoped<IWorkflowMessageService, BrevoMessageService>();
         services.AddScoped<IEmailSender, BrevoEmailSender>();
     }
 

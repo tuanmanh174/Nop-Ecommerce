@@ -10,7 +10,6 @@ using Nop.Core.Configuration;
 using Nop.Core.Infrastructure;
 using Nop.Data.Extensions;
 using Nop.Data.Migrations;
-
 namespace Nop.Data;
 
 /// <summary>
@@ -46,7 +45,7 @@ public partial class NopDbStartup : INopStartup
                     .ScanIn(mAssemblies).For.Migrations().SetCommandTimeout());
 
         services.AddTransient(p => new Lazy<IVersionLoader>(p.GetRequiredService<IVersionLoader>()));
-
+        //services.AddScoped<ICustomDishService, CustomDishService>();
         //data layer
         services.AddTransient<IDataProviderManager, DataProviderManager>();
         services.AddTransient(serviceProvider =>

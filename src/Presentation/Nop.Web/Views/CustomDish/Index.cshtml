@@ -1,0 +1,22 @@
+﻿@model List<Nop.Core.Domain.CustomDish.Ingredient>
+
+@{
+    ViewData["Title"] = "Chọn Nguyên Liệu";
+}
+
+<h2>Chọn Nguyên Liệu</h2>
+
+<form method="post" action="@Url.Action("CreateDish", "CustomDish")">
+    <input type="text" name="name" placeholder="Nhập tên món ăn" required />
+
+    @foreach (var ingredient in Model)
+    {
+        <div>
+            <input type="checkbox" name="ingredientIds" value="@ingredient.Id" />
+            <label>@ingredient.Name - @ingredient.Price VNĐ</label>
+        </div>
+    }
+    <button type="submit">Tạo Món Ăn</button>
+</form>
+
+<a href="@Url.Action("Cart", "CustomDish")">Xem Giỏ Hàng</a>

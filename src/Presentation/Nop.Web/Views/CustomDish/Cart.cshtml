@@ -1,0 +1,17 @@
+﻿@model List<Nop.Core.Domain.CustomDish.Dish>
+
+@{
+    ViewData["Title"] = "Giỏ Hàng";
+}
+
+<h2>Giỏ Hàng</h2>
+
+@foreach (var dish in Model)
+{
+    <div>
+        <h3>@dish.Name</h3>
+        <p><strong>Tổng tiền: @dish.TotalPrice VNĐ</strong></p>
+    </div>
+}
+
+<a href="@Url.Action("Checkout", "CustomDish")">Thanh Toán</a>
